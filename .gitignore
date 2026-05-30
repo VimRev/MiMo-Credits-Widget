@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Logs
+logs/
+*.log
+
+# CodeGraph
+.codegraph/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+dist/
+build/
+out/
+
+# Environment
+.env
+.env.local
+
+# Screenshots
+*.png
+*.jpg
+*.jpeg
+
+# Chrome profile
+MiMo-Credits-Chrome/

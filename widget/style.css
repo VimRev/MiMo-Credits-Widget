@@ -1,0 +1,314 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111217;
+  color: #f6f7fb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Variable", "Microsoft YaHei UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  background:
+    radial-gradient(circle at 20px 22px, rgba(255, 105, 0, 0.18), transparent 42px),
+    linear-gradient(145deg, #191a20 0%, #111217 54%, #16121e 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-app-region: drag;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: transparent;
+  font-size: 11px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease;
+  -webkit-app-region: no-drag;
+}
+
+.card:hover .close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.close-btn:hover {
+  background: #ff453a !important;
+  color: #fff !important;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 28px;
+  margin-bottom: 10px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 9px;
+}
+
+.brand-copy {
+  min-width: 0;
+}
+
+.logo {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(255, 105, 0, 0.3);
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.title {
+  max-width: 148px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 700;
+}
+
+.subtitle {
+  max-width: 150px;
+  margin-top: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 9px;
+  line-height: 11px;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.dot {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  margin-right: 24px;
+  border-radius: 50%;
+  transition: background 0.24s ease, box-shadow 0.24s ease, opacity 0.24s ease;
+}
+
+.dot.ok {
+  background: #34d176;
+  box-shadow: 0 0 10px rgba(52, 209, 118, 0.75);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+.dot.slow {
+  background: #ffb340;
+  box-shadow: 0 0 10px rgba(255, 179, 64, 0.7);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.dot.error {
+  background: #ff453a;
+  box-shadow: 0 0 10px rgba(255, 69, 58, 0.7);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.48; }
+}
+
+.hero-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.hero-main {
+  min-width: 0;
+}
+
+.usage-caption,
+.pill-label,
+.stat-label {
+  font-size: 8px;
+  line-height: 9px;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.usage-caption {
+  margin-bottom: 2px;
+}
+
+.percentage {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 30px;
+  line-height: 32px;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.balance-pill {
+  min-width: 0;
+  padding: 6px 8px 6px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: right;
+  -webkit-app-region: no-drag;
+}
+
+.pill-value {
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.bar {
+  height: 7px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bar-fill {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #35d07f, #a7ea5a);
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bar-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.bar-fill.warn { background: linear-gradient(90deg, #ffb340, #ffd166); }
+.bar-fill.danger { background: linear-gradient(90deg, #ff5a52, #ff8a65); }
+
+.bar-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 9px;
+  line-height: 11px;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+  -webkit-app-region: no-drag;
+}
+
+.metric {
+  min-width: 0;
+  padding: 6px 8px 5px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 750;
+}
+
+.stat-label {
+  margin-top: 2px;
+}
+
+.loading {
+  text-align: center;
+  padding: 30px 0 0;
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  margin: 0 auto 9px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.09);
+  border-top-color: #ff6900;
+  animation: spin 0.82s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.error-box {
+  text-align: center;
+  padding: 24px 10px 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.error-icon {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: rgba(255, 69, 58, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #ff453a;
+}
+
+.error-text {
+  word-break: break-word;
+}

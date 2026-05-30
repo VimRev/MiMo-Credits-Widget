@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src http://127.0.0.1:19220;">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <button class="close-btn" id="btnClose" aria-label="Close">&#10005;</button>
+
+    <div class="header">
+      <div class="header-left">
+        <div class="logo"><img id="logo" src="logo.png" alt="Xiaomi"></div>
+        <div class="brand-copy">
+          <div class="title">MiMo Credits</div>
+          <div class="subtitle" id="planInfo">Token Plan</div>
+        </div>
+      </div>
+      <div class="dot ok" id="dot"></div>
+    </div>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <div class="loading-text">Connecting...</div>
+    </div>
+
+    <div id="main" style="display:none">
+      <div class="hero-row">
+        <div class="hero-main">
+          <div class="usage-caption">本月已用</div>
+          <div class="percentage" id="pct">0%</div>
+        </div>
+
+        <div class="balance-pill">
+          <div class="pill-label">余额</div>
+          <div class="pill-value" id="sBal">&yen;0</div>
+        </div>
+      </div>
+
+      <div class="bar">
+        <div class="bar-fill" id="fill" style="width:0%"></div>
+      </div>
+      <div class="bar-detail">
+        <span id="usedText">0</span>
+        <span id="totalText">0</span>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="stat-value" id="sLeft">0</div>
+          <div class="stat-label">剩余额度</div>
+        </div>
+        <div class="metric">
+          <div class="stat-value" id="sToken">0</div>
+          <div class="stat-label">约 Token</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="errBox" style="display:none">
+      <div class="error-box">
+        <div class="error-icon">!</div>
+        <div class="error-text" id="errText"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
